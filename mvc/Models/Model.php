@@ -161,6 +161,24 @@
     
             return $r->fetchAll(PDO::FETCH_OBJ);
         }
+
+    //    _______________________________
+        public function get_all_editeur() { 
+        
+        $r = $this->bd->prepare("SELECT DISTINCT Editeur FROM livres");
+        $r->execute();
+        
+            return $r->fetchAll(PDO::FETCH_OBJ);
+        }
+        
+        public function get_all_editeur_list()
+        {
+            $trie = $_POST['editeur'];
+            $r = $this->bd->prepare("SELECT * FROM livres WHERE Editeur = '$trie'");
+            $r->execute();
+    
+            return $r->fetchAll(PDO::FETCH_OBJ);
+        }
         
         //    _______________________________
          public function get_all_raison_sociale() 
@@ -175,6 +193,42 @@
             {
                 $trie = $_POST['Raison_sociale'];
                 $r = $this->bd->prepare("SELECT * FROM fournisseur WHERE Raison_sociale = '$trie'");
+                $r->execute();
+        
+                return $r->fetchAll(PDO::FETCH_OBJ);
+            }
+
+        //    _______________________________
+         public function get_all_localite() 
+            {
+                $r = $this->bd->prepare("SELECT DISTINCT Localite FROM fournisseur");
+                $r->execute();
+        
+                return $r->fetchAll(PDO::FETCH_OBJ);
+            }
+        
+            public function get_all_localite_list()
+            {
+                $trie = $_POST['Localite'];
+                $r = $this->bd->prepare("SELECT * FROM fournisseur WHERE Localite = '$trie'");
+                $r->execute();
+        
+                return $r->fetchAll(PDO::FETCH_OBJ);
+            }
+
+        //    _______________________________
+         public function get_all_pays() 
+            {
+                $r = $this->bd->prepare("SELECT DISTINCT Pays FROM fournisseur");
+                $r->execute();
+        
+                return $r->fetchAll(PDO::FETCH_OBJ);
+            }
+        
+            public function get_all_pays_list()
+            {
+                $trie = $_POST['Pays'];
+                $r = $this->bd->prepare("SELECT * FROM fournisseur WHERE Pays = '$trie'");
                 $r->execute();
         
                 return $r->fetchAll(PDO::FETCH_OBJ);

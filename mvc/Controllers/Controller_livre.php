@@ -80,6 +80,27 @@ public function action_all_auteur_list()
 	$this->render("all_auteur_list", $data);
 
 }
+
+// _______________________________________________
+// pour trier par editeur
+	
+public function action_all_editeur()
+{
+	$m = Model::get_model();
+	$data = ["editeur" => $m->get_all_editeur()];
+	$this->render("all_editeur", $data);
+}
+
+// Affiche tout les livres par titre
+public function action_all_editeur_list()
+{
+	$m = Model::get_model();
+	$data = ["livres" => $m->get_all_editeur_list()];
+	$this->render("all_editeur_list", $data);
+
+}
+
+
 }
 
 

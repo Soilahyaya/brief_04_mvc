@@ -60,6 +60,42 @@ class Controller_fournisseur extends Controller
         $m = Model::get_model();
         $data = ["fournisseur" => $m->get_all_raison_sociale_list()];
         $this->render("all_raison_sociale_list", $data);
+    }
+	
+// _________________________________________
+	// pour trier par raison sociale
+	
+	public function action_all_localite()
+    {
+        $m = Model::get_model();
+        $data = ["localite" => $m->get_all_localite()];
+        $this->render("all_localite", $data);
+    }
+
+    // Affiche tout les fournisseurs avec la raison sociale choisie
+    public function action_all_localite_list()
+    {
+        $m = Model::get_model();
+        $data = ["fournisseur" => $m->get_all_localite_list()];
+        $this->render("all_localite_list", $data);
+    }
+
+// _________________________________________
+	// pour trier par raison sociale
+	
+	public function action_all_pays()
+    {
+        $m = Model::get_model();
+        $data = ["pays" => $m->get_all_pays()];
+        $this->render("all_pays", $data);
+    }
+
+    // Affiche tout les fournisseurs avec la raison sociale choisie
+    public function action_all_pays_list()
+    {
+        $m = Model::get_model();
+        $data = ["fournisseur" => $m->get_all_pays_list()];
+        $this->render("all_pays_list", $data);
     }	
 	
 
